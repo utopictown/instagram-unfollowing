@@ -30,7 +30,7 @@ class UnfollowBot():
     def fetchFollowers(self):
         driver = self.driver
         driver.get(self.url+self.username)
-        follower_link = driver.find_element_by_xpath("//a[@href='/neesyler/followers/']")
+        follower_link = driver.find_element_by_xpath("//a[@href='/"+self.username+"/followers/']")
         follower_link.click()
         time.sleep(20)
         follower_lists = driver.find_elements_by_css_selector('a.FPmhX.notranslate._0imsa')
@@ -41,7 +41,7 @@ class UnfollowBot():
     def unfollow(self):
         driver = self.driver
         driver.get(self.url+self.username)
-        following = driver.find_element_by_xpath("//a[@href='/neesyler/following/']")
+        following = driver.find_element_by_xpath("//a[@href='/"+self.username+"/following/']")
         following.click()
         time.sleep(20)
         following_lists = driver.find_elements_by_class_name("uu6c_")
